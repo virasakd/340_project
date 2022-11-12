@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Slimes Enviro</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="site-title">
+            <h1>Slimes Enviro</h1>
+        </div>
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="customers.html">Customers</a>
+            <a href="employees.html">Employees</a>
+            <a href="products.html">Products</a>
+            <a href="orders.html">Orders</a>
+            <a href="ordered_products.html">Ordered Products</a>
+            <a href="fungi.html">Fungi</a>
+            <a href="fungus_products.html">Fungus Products</a>  
+        </div>
+
+        <h1 class="title">Orders</h1>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Total Cost</th>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Customer ID</th>
+                <th>Customer Name</th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>1</th>
+                <th>2022-08-09</th>
+                <th>800.23</th>
+                <th>2</th>
+                <th>Jimmy McGill</th>
+                <th>1</th>
+                <th>John Smith</th>
+                <th><button>Delete</button></th>
+            </tr>
+            <tr>
+                <th>2</th>
+                <th>2022-08-23</th>
+                <th>2230.54</th>
+                <th>2</th>
+                <th>Jimmy McGill</th>
+                <th>2</th>
+                <th>Robert Jones</th>
+                <th><button>Delete</button></th>
+            </tr>
+            <tr>
+                <th>3</th>        
+                <th>2022-09-24</th>
+                <th>50000.23</th>
+                <th>3</th>
+                <th>Deborah Williams</th>
+                <th>3</th>
+                <th>Timothy Cooper</th>
+                <th><button>Delete</button></th>
+            </tr>
+            <tr>
+                <th>4</th>        
+                <th>2022-10-03</th>
+                <th>945.77</th>
+                <th>NULL</th>
+                <th>NULL</th>
+                <th>2</th>
+                <th>Robert Jones</th>
+                <th><button>Delete</button></th>
+            </tr>
+        </table>
+        
+        <label>Filter Orders by Date</label>
+        <input type="date">
+        <button type="button">Reset date</button>
+
+        <form id="addOrder">
+            <legend><h3>Add Order</h3></legend>
+            <fieldset>
+                <label>Date</label> <input type="date">
+                <label>Total Cost</label> <input type="number">
+                <label>Employee ID</label>
+                <select name = "id" id="custID">
+                    <option value = "1">1 - Karolina Martins</option>
+                    <option value = "2">2 - Jimmy McGill</option>
+                    <option value = "3">3 - Deborah Williams</option>
+                </select>
+                <label>Customer ID</label>
+                <select name = "id" id="custID">
+                    <option value = "1">1 - John Smith</option>
+                    <option value = "2">2 - Robert Jones</option>
+                    <option value = "3">3 - Timothy Cooper</option>
+                </select>
+            </fieldset>
+        </form>
+        <input type="submit" value="Add Order">
+        <input type="button" value="Cancel">
+
+
+        <form id="updateOrder">
+            <legend><h3>Update Order</h3></legend>
+            <fieldset>
+                <label>Order ID</label>
+                <select name = "id" id="orderID">
+                    <option value = "1">1</option>
+                    <option value = "2">2</option>
+                    <option value = "3">3</option>
+                </select>
+                <label>Date</label> <input type="date">
+                <label>Total Cost</label> <input type="number">
+                <label>Employee ID</label>
+                <select name = "id" id="empID">
+                    <option value = "NULL">NULL</option>
+                    <option value = "1">1 - Karolina Martins</option>
+                    <option value = "2">2 - Jimmy McGill</option>
+                    <option value = "3">3 - Deborah Williams</option>
+                </select>
+                <label>Customer ID</label>
+                <select name = "id" id="custID">
+                    <option value = "1">1 - John Smith</option>
+                    <option value = "2">2 - Robert Jones</option>
+                    <option value = "3">3 - Timothy Cooper</option>
+                </select>
+            </fieldset>
+        </form>
+
+        <input type="submit" value="Update Order">
+        <input type="button" value="Cancel">
+
+    </body>
+</html> 
+ 

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Slimes Enviro</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="site-title">
+            <h1>Slimes Enviro</h1>
+        </div>
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="customers.html">Customers</a>
+            <a href="employees.html">Employees</a>
+            <a href="products.html">Products</a>
+            <a href="orders.html">Orders</a>
+            <a href="ordered_products.html">Ordered Products</a>
+            <a href="fungi.html">Fungi</a>
+            <a href="fungus_products.html">Fungus Products</a>  
+        </div>
+
+        <h1 class="title">Ordered Products</h1>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Order ID</th>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Cost</th>
+                <!--<th><button>Delete</button></th>-->
+            </tr>
+            <tr>
+                <th>1</th>
+                <th>3</th>
+                <th>1</th>
+                <th>Redtail</th>
+                <th>5</th>
+                <th>500.35</th>
+                 <!--<th><button>Delete</button></th>-->
+            </tr>
+            <tr>
+                <th>2</th>
+                <th>3</th>
+                <th>2</th>
+                <th>Hyper Galaxy</th>
+                <th>14</th>
+                <th>15000.78</th>
+                <!--<th><button>Delete</button></th>-->
+            </tr>
+            <tr>
+                <th>3</th>        
+                <th>1</th>
+                <th>3</th>
+                <th>Microdigest</th>
+                <th>67</th>
+                <th>50000.34</th>
+                <!--<th><button>Delete</button></th>-->
+            </tr>
+        </table>
+
+        <form id="addOrderedProd">
+            <legend><h3>Add Ordered Product</h3></legend>
+            <fieldset>
+                <label>Product ID</label>
+                <select name = "id" id="productID">
+                    <option value = "1">1 - Redtail</option>
+                    <option value = "2">2 - Hyper Galaxy</option>
+                    <option value = "3">3 - Microdigest </option>
+                </select>
+                <label>Order ID</label>
+                <select name = "id" id="orderID">
+                    <option value = "1">1</option>
+                    <option value = "2">2</option>
+                    <option value = "3">3</option>
+                </select>
+                <label>Quantity</label> <input type="number">
+                <label>Cost</label> <input type="number">
+            </fieldset>
+        </form>
+
+        <input type="submit" value="Add Ordered Product">
+        <input type="button" value="Cancel">
+
+        <!--<form id="updateOrderedProd">
+            <legend><h3>Update Ordered Product</h3></legend>
+            <fieldset>
+                <label>Ordered Product ID</label>
+                <select name = "id" id="productID">
+                    <option value = "1">1</option>
+                    <option value = "2">2</option>
+                    <option value = "3">3</option>
+                </select>
+                <label>Product ID</label>
+                <select name = "id" id="productID">
+                    <option value = "1">1 - Redtail</option>
+                    <option value = "2">2 - Hyper Galaxy</option>
+                    <option value = "3">3 - Microdigest </option>
+                </select>
+                <label>Order ID</label>
+                <select name = "id" id="orderID">
+                    <option value = "1">1</option>
+                    <option value = "2">2</option>
+                    <option value = "3">3</option>
+                </select>
+                <label>Quantity</label> <input type="number">
+                <label>Cost</label> <input type="number">
+            </fieldset>
+        </form>
+
+        <input type="submit" value="Update Ordered Product">
+        <input type="button" value="Cancel"> -->
+
+    </body>
+</html> 
+ 
+ 

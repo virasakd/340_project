@@ -1,0 +1,80 @@
+<h1 class="title">Fungus Products</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Fungus ID</th>
+        <th>Fungus Name</th>
+        <th>Product ID</th>
+        <th>Product Name</th>
+    </tr>
+    <tr>
+        <th>1</th>
+        <th>1</th>
+        <th>Auricularia cornea</th>
+        <th>1</th>
+        <th>Redtail</th>
+    </tr>
+    <tr>
+        <th>2</th>
+        <th>2</th>
+        <th>Boletus</th>
+        <th>2</th>
+        <th>Hypergalaxy</th>
+    </tr>
+    <tr>
+        <th>3</th>        
+        <th>3</th>
+        <th>Agaricus augustus</th>
+        <th>2</th>
+        <th>Microdigest</th>
+    </tr>
+</table>
+
+<form id="addFungusProd">
+    <legend><h3>Add Fungus Product</h3></legend>
+    <fieldset>
+        <label>Fungus ID</label> 
+        <select name = "product id" id="orderID">
+            <option value = "1">1 - Auricularia cornea</option>
+            <option value = "2">2 - Boletus </option>
+            <option value = "3">3 - Agaricus augustus</option>
+        </select>
+        <label>Product ID</label> 
+        <select name = "fungus id" id="fungusID">
+            <option value = "1">1 - Redtail</option>
+            <option value = "2">2 - Hypergalaxy </option>
+            <option value = "3">3 - Microdigest </option>
+        </select>
+    </fieldset>
+</form>
+
+<input type="submit" value="Add Fungus Product">
+<input type="button" value="Cancel">
+
+<form id="updateFungusProd">
+    <legend><h3>Update Fungus Product</h3></legend>
+    <fieldset>
+        <label>Fungus Product ID</label> 
+        <select name = "fungus product id" id="fungusprodID">
+            <option value = "1">1</option>
+            <option value = "2">2</option>
+            <option value = "3">3</option>
+        </select>
+        <label>Fungus ID</label>
+        <select name = "fungus id" id="fungusID">
+            <option value = "1">1 - Auricularia cornea</option>
+            <option value = "2">2 - Boletus </option>
+            <option value = "3">3 - Agaricus augustus</option>
+        </select>
+        <label>Product ID</label> 
+        <select name = "product id" id="productID">
+            <option value = "1">1 - Redtail</option>
+            <option value = "2">2 - Hypergalaxy </option>
+            <option value = "3">3 - Microdigest </option>
+        </select>
+    </fieldset>
+</form>
+
+<input type="submit" value="Update Fungus Product">
+<input type="button" value="Cancel">
