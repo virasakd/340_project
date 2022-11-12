@@ -1,22 +1,23 @@
 <h1 class="title">Orders</h1>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <table id = "orders_table">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>Date</th>
-            <th>Total Cost</th>
-            <th>Employee ID</th>
-            <th>Employee Name</th>
-            <th>Customer ID</th>
-            <th>Customer Name</th>
-            <th></th>
+		<th>ID</th>
+		<th>Order Date</th>
+		<th>Total Cost</th>
+		<th>Employee ID</th>
+		<th>Employee Name</th>
+		<th>Customer ID</th>
+		<th>Customer Name</th>
+		<th></th>
         </tr>
     </thead>
 
     <tbody>
         {{#each data}}
-        <tr>
+        <tr data-value={{this.order_id}}>
             <td>{{this.order_id}}</td>
             <td>{{this.order_date}}</td>
             <td>{{this.total_cost}}</td>
@@ -24,17 +25,19 @@
             <td>{{this.employee_name}}</td>
             <td>{{this.customer_id}}</td>
             <td>{{this.customer_name}}</td>
-            <td><button>Delete</button></td>
-
+            <td><button onclick="deleteOrder({{this.order_id}})">Delete</button></td>
         </tr>
         {{/each}}
-    </tbody>
-    
+    </tbody>    
 </table>
 
-<label>Filter Orders by Date</label>
-<input type="date">
-<button type="button">Reset date</button>
+<form id="search-date-html" method="GET" action='/orders'>
+      <label for "input-order_date">Filter Orders by Date</label>
+      <input type="date" name="order_date" id="input-date-html-search">
+      
+      <input type="submit">
+      <a href='/orders'><button>Reset</button></a>
+</form>
 
 <form id="addOrder">
     <legend><h3>Add Order</h3></legend>
@@ -49,8 +52,8 @@
             <option value = "{{this.employee_id}}">{{this.employee_name}}</option>
             {{/each}}
         </select>
-        <label>Customer ID</label>
 
+        <label>Customer ID</label>
         <select name = "id" id="custID">
             {{#each custInfo}}
             <option value = "{{this.customer_id}}">{{this.customer_name}}</option>
@@ -67,27 +70,31 @@
     <legend><h3>Update Order</h3></legend>
     <fieldset>
         <label>Order ID</label>
-        <select name = "id" id="orderID">
-            <option value = "1">1</option>
-            <option value = "2">2</option>
-            <option value = "3">3</option>
+        <select name = "id" id="updateOrderID">
+	{{#each data}}
+            <option value = "{{this.order_id}}">{{this.order_id}}</option>
+	 {{/each}}
         </select>
-        <label>Date</label> <input type="date">
-        <label>Total Cost</label> <input type="number">
+        <label>Date</label> <input type="date" id="updateOrderDate">
+        <label>Total Cost</label> <input type="number" id = "updateOrderCost">
         <label>Employee ID</label>
-        <select name = "id" id="empID">
-            <option value = "NULL">NULL</option>
+        <select name = "input-emp-id" id="updateEmpID">
+            {{!<option value = "NULL">NULL</option>}}
             {{#each empInfo}}
             <option value = "{{this.employee_id}}">{{this.employee_name}}</option>
             {{/each}}
         </select>
         <label>Customer ID</label>
-        <select name = "id" id="custID">
+        <select name = "input-cust-id" id="updateCustID">
              {{#each custInfo}}
             <option value = "{{this.customer_id}}">{{this.customer_name}}</option>
             {{/each}}
         </select>
     </fieldset>
+    <input type="submit" value = "Update Order">
 </form>
 
-<script src = "./orders.js"></script>
+<script src = "/js/orders.js"></script>
+<script src = "/js/delete_order.js"></script>
+<script src = "/js/update_order.js"></script>
+
