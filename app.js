@@ -3,7 +3,7 @@
 */
 var express = require('express');   
 var app     = express();           
-PORT        = 50230;                 
+PORT        = 60321;                 
 
 // import the database connector file.
 var db = require('./database/db-connector');
@@ -38,13 +38,68 @@ app.get(['/','/index'], function(req, res)
 // route for customers
 app.get('/customers', function(req, res)
 {
-    res.render('customers');
+    // instantiate a select query for the customers page.
+    let query1 = `SELECT * FROM Customers;`;
+
+    db.pool.query(query1, function(error, rows, fields){    // Execute the query
+
+        res.render('customers', {data: rows});                  // Render the index.hbs file, and also send the renderer
+    })                                    
+
+    
 });
+
+app.post('/add-customer-ajax', function(req,res){
+
+    let data = req.body
+
+    let name = data.customer_name;
+    let email = data.customer_email;
+    let phone_num = data.phone_number;
+    let address = data.address;
+
+    // store each of the data fields from the submission forms.
+    let value_list = [name,email,phone_num,address]
+
+    // if any of the submission field are missing, skip the request.
+    if (value_list.includes("") == false){
+
+        query1 = `INSERT INTO Customers (customer_name, customer_email, phone_number, address) VALUES ('${data.customer_name}', '${data.customer_email}', '${data.phone_number}','${data.address}')`;
+
+        db.pool.query(query1, function(error, rows, fields) {
+    
+            // check for an error
+            if (error) {
+                // if there is an error, send a 404 error to the customer table.
+                console.log(error)
+                res.sendStatus(400);
+            }
+            else {
+                // otherwise, perform a redirect. However the location.reload, will refresh the page and show the updates.
+                res.redirect('/');
+            }
+    
+        })
+    }
+    else{
+        console.log("submission has not been added, all thie fields must be entered.");
+    }
+    
+
+});
+
 
 // route for the employees page.
 app.get('/employees', function(req, res)
 {
-    res.render('employees');
+       // ues a select query to populate the data table.
+    let query1 = `SELECT * FROM Employees;`
+
+    db.pool.query(query1, function(error, rows, fields){    // Execute the query
+
+        res.render('employees', {data: rows});                  
+    })
+
 });
 
 
