@@ -1,4 +1,7 @@
+<script defer src = "/js/employees.js"></script>
+
 <h1 class="title">Employees</h1>
+
 
 <table>
 
@@ -31,12 +34,15 @@
 <form id="addEmployee">
     <legend><h3>Add Employee</h3></legend>
     <fieldset>
-        <label>Name</label> <input  type="text">
-        <label>Email</label> <input  type="text">
-        <label>Phone Number</label> <input  type="text">
-        <label>Salary</label> <input  type="text">
+        <label>Name</label> <input  type="text" id = 'emp_name' >
+        <label>Email</label> <input  type="text" id = 'emp_email'>
+        <label>Phone Number</label> <input  type="text" id = 'emp_phone' pattern="[0-9]{3} [0-9]{3} [0-9]{4}}">
+        <label>Salary</label> <input  type="text" id = 'emp_salary'>
     </fieldset>
+    <input type="submit" value="Add Employee">
 </form>
 
-<input type="submit" value="Add Employee">
-<input type="button" value="Cancel">
+
+
+
+

@@ -102,6 +102,53 @@ app.get('/employees', function(req, res)
 
 });
 
+// route for adding employess to the employee's database.
+app.post('/add-employees-ajax', function(req, res){
+
+    let data = req.body;
+
+    let name_em = data.employee_name
+    let email_em = data.employee_email
+    let phone_number = data.employee_phone
+
+    console.log(phone_number,"here")
+
+    let salary_em = data.salary;
+
+    // convert an undefineded salary to zero.
+    if (isNaN(salary_em)){
+        salary_em = 0;
+    }
+
+    let list_input = [name_em, email_em, phone_number];
+
+    if(list_input.includes("") == false){
+
+        query1 = `INSERT INTO Employees(employee_name, employee_email, employee_phone, salary) VALUES ('${name_em}','${email_em}','${phone_number}','${salary_em}')`;
+
+        db.pool.query(query1, function(error, rows, fields) {
+    
+            // check for an error
+            if (error) {
+                // if there is an error, send a 404 error to the employee table.
+                console.log(error)
+                res.sendStatus(400);
+            }
+            else {
+                // otherwise, perform a redirect. However the location.reload, will refresh the page and show the updates.
+                res.redirect('/');
+            }
+    
+        })
+    }
+    else{
+        console.log("employee insert was not completely filled out.");
+
+    }
+
+
+});
+
 
 // route for the fungi page.
 app.get('/fungi', function(req, res)
