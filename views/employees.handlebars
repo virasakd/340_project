@@ -1,10 +1,7 @@
-<script defer src = "/js/employees.js"></script>
-
 <h1 class="title">Employees</h1>
 
 
-<table>
-
+<table id="employees_table">
     <thead>
         <tr>
             <th>ID</th>
@@ -18,31 +15,39 @@
 
     <tbody>
         {{#each data}}
-        <tr>
-            <th>{{this.employee_id}}</th>
-            <th>{{this.employee_name}}</th>
-            <th>{{this.employee_email}}</th>
-            <th>{{this.employee_phone}}</th>
-            <th>{{this.salary}}</th>
-            <th><button>Delete</button></th>
+        <tr data-value={{this.employee_id}}>
+            <td>{{this.employee_id}}</td>
+            <td>{{this.employee_name}}</td>
+            <td>{{this.employee_email}}</td>
+            <td>{{this.employee_phone}}</td>
+            <td>{{this.salary}}</td>
+            <td> <button onclick="deleteEmployee({{this.employee_id}})">Delete</button> </td>
         </tr>
         {{/each}}
 
     </tbody>
 </table>
 
+<div>
+    <h3>Instructions for adding Employees:</h3>
+    <p>All input fields must be filled, in order to successfully add an employee.</p>
+    <p><strong>Phone number Format:</strong>123 456 7890</p>
+    <p>Salary must be a number greater than or equal to 0.</p>
+</div>
+
 <form id="addEmployee">
     <legend><h3>Add Employee</h3></legend>
     <fieldset>
         <label>Name</label> <input  type="text" id = 'emp_name' >
         <label>Email</label> <input  type="text" id = 'emp_email'>
-        <label>Phone Number</label> <input  type="text" id = 'emp_phone' pattern="[0-9]{3} [0-9]{3} [0-9]{4}}">
-        <label>Salary</label> <input  type="text" id = 'emp_salary'>
+        <label>Phone Number</label> <input  type="text" id = 'emp_phone' pattern="[0-9]{3} [0-9]{3} [0-9]{4}" required>
+        <label>Salary</label> <input  type="number" min="0" id = 'emp_salary'required>
     </fieldset>
     <input type="submit" value="Add Employee">
 </form>
 
-
+<script src = "/js/employees.js"></script>
+<script src = "/js/delete_employee.js"></script>
 
 
 

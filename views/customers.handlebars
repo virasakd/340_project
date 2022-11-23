@@ -1,5 +1,6 @@
 <h1 class="title">Customers</h1>
 
+
 <table id = "customers_table">
     <thead>
         <tr>
@@ -27,21 +28,27 @@
 
 </table>
 
+<div>
+    <h3>Instructions for adding customers:</h3>
+    <p>All input fields must be filled, in order to successfully add a customer.</p>
+    <p><strong>Phone number Format:</strong>123 456 7890</p>
+</div>
+
 <form id="addCustomer">
     <legend><h3>Add Customer</h3></legend>
     <fieldset>
         <label>Name</label> <input  type="text" id = "cust_name">
         <label>Email</label> <input  type="text" id = "cust_email">
-        <label>Phone Number</label> <input  type="text" id = "cust_phone">
+        <label>Phone Number</label> <input type="text" id="cust_phone" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" required>
         <label>Address</label> <input  type="text" id = "cust_address">
     </fieldset>
     <input type="submit" value="Add Customer">
 </form>
 
+{{!-- 
+<input type="button" value="Cancel">
 
-{{!-- <input type="button" value="Cancel"> --}}
-
-<!--<form id="updateCustomer">
+<form id="updateCustomer">
     <legend><h3>Update Customer</h3></legend>
     <fieldset>
         <label>ID</label>
@@ -58,6 +65,5 @@
 </form>
 
 <input type="submit" value="Update Customer">
-<input type="button" value="Cancel"> -->
-
+<input type="button" value="Cancel">  --}}
 <script src = "/js/customers.js"></script>

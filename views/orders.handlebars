@@ -39,12 +39,19 @@
       <a href='/orders'><button>Reset</button></a>
 </form>
 
+<div>
+    <h3>Instructions for Adding and Updating to the Orders table:</h3>
+    <p>All input fields excecpt the date box must be filled in.</p>
+    <p><strong>NOTE:</strong> If the date box is not filled in, the value will be '0-0-00'.</p>
+    <p>Total Cost must be a number greater than or equal to 0.</p>
+</div>
+
 <form id="addOrder">
     <legend><h3>Add Order</h3></legend>
     <fieldset>
         <label>Date</label> <input type="date" id="date_input">
 
-        <label>Total Cost</label> <input type="number" id = "cost_input">
+        <label>Total Cost</label> <input type="number" step="0.01" min="0" id = "cost_input" required>
 
         <label>Employee ID</label>
         <select name = "id" id="empID">
@@ -73,10 +80,10 @@
         <select name = "id" id="updateOrderID">
 	{{#each data}}
             <option value = "{{this.order_id}}">{{this.order_id}}</option>
-	 {{/each}}
+	     {{/each}}
         </select>
         <label>Date</label> <input type="date" id="updateOrderDate">
-        <label>Total Cost</label> <input type="number" id = "updateOrderCost">
+        <label>Total Cost</label> <input type="number" step="0.01" min="0" id = "updateOrderCost" required>
         <label>Employee ID</label>
         <select name = "input-emp-id" id="updateEmpID">
             {{!<option value = "NULL">NULL</option>}}
@@ -97,4 +104,3 @@
 <script src = "/js/orders.js"></script>
 <script src = "/js/delete_order.js"></script>
 <script src = "/js/update_order.js"></script>
-
