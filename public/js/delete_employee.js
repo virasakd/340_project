@@ -1,11 +1,12 @@
-function deleteOrder(orderID) {
+function deleteEmployee(empID) {
     // Put our data we want to send in a javascript object
     let data = {
-        order_id: orderID
+        employee_id: empID
     };
+
     // Setup our AJAX request
     var xhttp = new XMLHttpRequest();
-    xhttp.open("DELETE", "/delete-order-ajax", true);
+    xhttp.open("DELETE", "/delete-employee-ajax", true);
     xhttp.setRequestHeader("Content-type", "application/json");
 
     // Tell our AJAX request how to resolve
@@ -13,7 +14,7 @@ function deleteOrder(orderID) {
         if (xhttp.readyState == 4 && xhttp.status == 204) {
 
             // Add the new data to the table
-            deleteRow(orderID);
+            deleteRow(empID);
 
         }
         else if (xhttp.readyState == 4 && xhttp.status != 204) {
@@ -25,15 +26,14 @@ function deleteOrder(orderID) {
 }
 
 
-function deleteRow(orderID){
-    let table = document.getElementById("orders_table");
+function deleteRow(empID){
+
+    let table = document.getElementById("employees_table");
     for (let i = 0, row; row = table.rows[i]; i++) {
        //iterate through rows
        //rows would be accessed using the "row" variable assigned in the for loop
-       if (table.rows[i].getAttribute("data-value") == orderID) {
+       if (table.rows[i].getAttribute("data-value") == empID) {
             table.deleteRow(i);
-            // reload the page so that the drop down box in the update form resets.
-            location.reload();
             break;
        }
     }

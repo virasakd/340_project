@@ -18,6 +18,7 @@ addorderForm.addEventListener("submit",function(e){
     let email_customer = inputCust_email.value;
     let phone_customer = inputCust_phone.value;
     let address_customer = inputCust_address.value;
+    console.log(name_customer, email_customer, "here is")
 
     // establish a javascript object.
     let data = {
