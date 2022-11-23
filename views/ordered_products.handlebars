@@ -1,93 +1,60 @@
 
 <h1 class="title">Ordered Products</h1>
 
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Order ID</th>
-        <th>Product ID</th>
-        <th>Product Name</th>
-        <th>Quantity</th>
-        <th>Cost</th>
-        <!--<th><button>Delete</button></th>-->
-    </tr>
-    <tr>
-        <th>1</th>
-        <th>3</th>
-        <th>1</th>
-        <th>Redtail</th>
-        <th>5</th>
-        <th>500.35</th>
-            <!--<th><button>Delete</button></th>-->
-    </tr>
-    <tr>
-        <th>2</th>
-        <th>3</th>
-        <th>2</th>
-        <th>Hyper Galaxy</th>
-        <th>14</th>
-        <th>15000.78</th>
-        <!--<th><button>Delete</button></th>-->
-    </tr>
-    <tr>
-        <th>3</th>        
-        <th>1</th>
-        <th>3</th>
-        <th>Microdigest</th>
-        <th>67</th>
-        <th>50000.34</th>
-        <!--<th><button>Delete</button></th>-->
-    </tr>
+<table id = "ordered_products_table">
+    <thead>
+	<tr>
+		<th>ID</th>
+		<th>Order ID</th>
+		<th>Product ID</th>
+		<th>Product Name</th>
+		<th>Quantity</th>
+		<th>Cost</th>    
+	</tr>
+   </thead>
+
+   <tbody>
+	{{#each data}}
+	<tr>
+	    <td>{{this.ordered_product_id}}</td>
+	    <td>{{this.order_id}}</td>
+	    <td>{{this.product_id}}</td>
+	    <td>{{this.product_name}}</td>
+	    <td>{{this.quantity}}</td>
+	    <td>{{this.cost}}</td>
+	</tr>
+	{{/each}}
+   </tbody>
+
 </table>
+
+<div>
+    <h3>Instructions for adding to order_products table:</h3>
+    <p>All input fields must be filled, in order to successfully add an employee.</p>
+    <p>Quantity and Cost must be a number greater than or equal to 0.</p>
+</div>
+
 
 <form id="addOrderedProd">
     <legend><h3>Add Ordered Product</h3></legend>
     <fieldset>
         <label>Product ID</label>
-        <select name = "id" id="productID">
-            <option value = "1">1 - Redtail</option>
-            <option value = "2">2 - Hyper Galaxy</option>
-            <option value = "3">3 - Microdigest </option>
+        <select name = "prodID" id="prodID">
+	    {{#each prodInfo}}
+            <option value = {{this.product_id}}>{{this.product_name}}</option>
+	    {{/each}}
         </select>
         <label>Order ID</label>
-        <select name = "id" id="orderID">
-            <option value = "1">1</option>
-            <option value = "2">2</option>
-            <option value = "3">3</option>
+        <select name = "orderID" id="orderID">
+	    {{#each orderInfo}}
+            <option value = "{{this.order_id}}">{{this.order_id}}</option>
+	    {{/each}}
         </select>
-        <label>Quantity</label> <input type="number">
-        <label>Cost</label> <input type="number">
+        <label>Quantity</label> <input type="number" min="0" id="quantity" required>
+        <label>Cost</label> <input type="number"step="0.01" min="0" id="cost" required>
     </fieldset>
+    <input type="submit" value="Add Ordered Product">
 </form>
 
-<input type="submit" value="Add Ordered Product">
-<input type="button" value="Cancel">
+<script src="./js/add_ordered_product.js"></script>
 
-<!--<form id="updateOrderedProd">
-    <legend><h3>Update Ordered Product</h3></legend>
-    <fieldset>
-        <label>Ordered Product ID</label>
-        <select name = "id" id="productID">
-            <option value = "1">1</option>
-            <option value = "2">2</option>
-            <option value = "3">3</option>
-        </select>
-        <label>Product ID</label>
-        <select name = "id" id="productID">
-            <option value = "1">1 - Redtail</option>
-            <option value = "2">2 - Hyper Galaxy</option>
-            <option value = "3">3 - Microdigest </option>
-        </select>
-        <label>Order ID</label>
-        <select name = "id" id="orderID">
-            <option value = "1">1</option>
-            <option value = "2">2</option>
-            <option value = "3">3</option>
-        </select>
-        <label>Quantity</label> <input type="number">
-        <label>Cost</label> <input type="number">
-    </fieldset>
-</form>
-
-<input type="submit" value="Update Ordered Product">
-<input type="button" value="Cancel"> -->

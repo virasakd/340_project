@@ -32,6 +32,8 @@ function deleteRow(orderID){
        //rows would be accessed using the "row" variable assigned in the for loop
        if (table.rows[i].getAttribute("data-value") == orderID) {
             table.deleteRow(i);
+            // reload the page so that the drop down box in the update form resets.
+            location.reload();
             break;
        }
     }

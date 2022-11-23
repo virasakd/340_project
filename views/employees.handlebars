@@ -1,49 +1,53 @@
 <h1 class="title">Employees</h1>
 
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone Number</th>
-        <th>Salary</th>
-        <th></th>
-    </tr>
-    <tr>
-        <th>1</th>
-        <th>Karolina Martins</th>
-        <th>kcmartins@gmail.com</th>
-        <th>823 321 1235</th>
-        <th>45000.25</th>
-        <th><button>Delete</button></th>
-    </tr>
-    <tr>
-        <th>2</th>
-        <th>Jimmy McGill</th>
-        <th>jm23@yahoo.com</th>
-        <th>989 123 5555</th>
-        <th>100000.00</th>
-        <th><button>Delete</button></th>
-    </tr>
-    <tr>
-        <th>3</th>        
-        <th>Deborah Williams</th>
-        <th>dbw2@gmail.com</th>
-        <th>888 811 4241</th>
-        <th>14000.73</th>
-        <th><button>Delete</button></th>
-    </tr>
+
+<table id="employees_table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Salary</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each data}}
+        <tr data-value={{this.employee_id}}>
+            <td>{{this.employee_id}}</td>
+            <td>{{this.employee_name}}</td>
+            <td>{{this.employee_email}}</td>
+            <td>{{this.employee_phone}}</td>
+            <td>{{this.salary}}</td>
+            <td> <button onclick="deleteEmployee({{this.employee_id}})">Delete</button> </td>
+        </tr>
+        {{/each}}
+
+    </tbody>
 </table>
+
+<div>
+    <h3>Instructions for adding Employees:</h3>
+    <p>All input fields must be filled, in order to successfully add an employee.</p>
+    <p><strong>Phone number Format:</strong>123 456 7890</p>
+    <p>Salary must be a number greater than or equal to 0.</p>
+</div>
 
 <form id="addEmployee">
     <legend><h3>Add Employee</h3></legend>
     <fieldset>
-        <label>Name</label> <input  type="text">
-        <label>Email</label> <input  type="text">
-        <label>Phone Number</label> <input  type="text">
-        <label>Salary</label> <input  type="text">
+        <label>Name</label> <input  type="text" id = 'emp_name' >
+        <label>Email</label> <input  type="text" id = 'emp_email'>
+        <label>Phone Number</label> <input  type="text" id = 'emp_phone' pattern="[0-9]{3} [0-9]{3} [0-9]{4}" required>
+        <label>Salary</label> <input  type="number" min="0" id = 'emp_salary'required>
     </fieldset>
+    <input type="submit" value="Add Employee">
 </form>
 
-<input type="submit" value="Add Employee">
-<input type="button" value="Cancel">
+<script src = "/js/employees.js"></script>
+<script src = "/js/delete_employee.js"></script>
+
+
+

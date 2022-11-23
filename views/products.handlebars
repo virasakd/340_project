@@ -1,40 +1,42 @@
 <h1 class="title">Products</h1>
 
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Main Ingredient</th>
-    </tr>
-    <tr>
-        <th>1</th>
-        <th>Redtail</th>
-        <th>500.35</th>
-        <th>Sulfur</th>
-    </tr>
-    <tr>
-        <th>2</th>
-        <th>Hyper Galaxy</th>
-        <th>200.73</th>
-        <th>Bromine</th>
-    </tr>
-    <tr>
-        <th>3</th>        
-        <th>Microdigest</th>
-        <th>780.11</th>
-        <th>Cobalt</th>
-    </tr>
+<table id= "products_table">
+    <thead>
+	<tr>
+		<th>ID</th>
+        	<th>Name</th>
+	        <th>Price</th>
+        	<th>Main Ingredient</th>
+    	</tr>
+    </thead>
+
+    <tbody>
+	{{#each data}}
+	<tr>
+		<td>{{this.product_id}}</td>
+		<td>{{this.product_name}}</td>
+		<td>{{this.price}}</td>
+		<td>{{this.main_ingredient}}</td>
+	</tr>
+	{{/each}}
+    </tbody>
 </table>
+
+<div>
+    <h3>Instructions for adding Products:</h3>
+    <p>All input filed must be filled in.</p>
+    <p>Price must be a number greater than or equal to 0.</p>
+</div>
 
 <form id="addProduct">
     <legend><h3>Add Product</h3></legend>
     <fieldset>
-        <label>Name</label> <input  type="text">
-        <label>Price</label> <input  type="text">
-        <label>Main Ingredient</label> <input  type="text">
+        <label>Name</label> <input type="text" id="inputName">
+        <label>Price</label> <input type="number" step="0.01" min="0" id="inputPrice"  required>
+        <label>Main Ingredient</label> <input type="text" id="mainIng">
     </fieldset>
+    <input type="submit" value="Add Product">
 </form>
 
-<input type="submit" value="Add Product">
-<input type="button" value="Cancel">
+
+<script src="./js/add_product.js"></script>

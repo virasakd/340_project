@@ -1,30 +1,31 @@
 <h1 class="title">Fungi</h1>
 
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-    </tr>
-    <tr>
-        <th>1</th>
-        <th>Auricularia cornea</th>
-    </tr>
-    <tr>
-        <th>2</th>
-        <th>Boletus</th>
-    </tr>
-    <tr>
-        <th>3</th>        
-        <th>Agaricus augustus</th>
-    </tr>
+<table id = "fungi_table">
+       <thead>
+		<tr>
+			<th>ID</th>
+        		<th>Name</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		{{#each data}}
+		<tr>
+			<td>{{this.fungus_id}}</td>
+			<td>{{this.fungus_name}}</td>
+		</tr>
+		{{/each}}	
+	</tbody>
 </table>
 
 <form id="addFungus">
     <legend><h3>Add Fungus</h3></legend>
     <fieldset>
-        <label>Name</label> <input  type="text">
+        <label>Name</label> <input type="text" id="addFungusName">
     </fieldset>
-</form>
 
 <input type="submit" value="Add Fungus">
-<input type="button" value="Cancel">
+</form>
+
+
+<script src="./js/add_fungus.js"></script>
