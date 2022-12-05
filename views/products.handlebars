@@ -1,16 +1,23 @@
+{{!-- Citation for products.handlebars --}}
+{{!-- Date: 12/05/2022 --}}
+{{!-- Adapted from Node JS Starter App--}}
+{{!-- https://github.com/osu-cs340-ecampus/nodejs-starter-app--}}
+
 <h1 class="title">Products</h1>
 
 <table id= "products_table">
+    {{!-- Display the columns --}}
     <thead>
 	<tr>
-		<th>ID</th>
-        	<th>Name</th>
-	        <th>Price</th>
-        	<th>Main Ingredient</th>
+	    <th>ID</th>
+            <th>Name</th>
+	    <th>Price</th>
+            <th>Main Ingredient</th>
     	</tr>
     </thead>
 
     <tbody>
+	{{!-- Print the relevant attributes for each row in order --}}
 	{{#each data}}
 	<tr>
 		<td>{{this.product_id}}</td>
@@ -22,17 +29,12 @@
     </tbody>
 </table>
 
-<div>
-    <h3>Instructions for adding Products:</h3>
-    <p>All input filed must be filled in.</p>
-    <p>Price must be a number greater than or equal to 0.</p>
-</div>
-
+{{!-- Form to add a product --}}
 <form id="addProduct">
     <legend><h3>Add Product</h3></legend>
     <fieldset>
         <label>Name</label> <input type="text" id="inputName">
-        <label>Price</label> <input type="number" step="0.01" min="0" id="inputPrice"  required>
+        <label>Price</label> <input type="text" step = "0.01" placeholder = "0.00" id="inputPrice">
         <label>Main Ingredient</label> <input type="text" id="mainIng">
     </fieldset>
     <input type="submit" value="Add Product">

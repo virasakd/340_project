@@ -1,23 +1,31 @@
+{{!-- Citation for fungi.handlebars --}} 
+{{!-- Date: 12/05/2022 --}}
+{{!-- Adapted from Node JS Starter App--}}
+{{!-- https://github.com/osu-cs340-ecampus/nodejs-starter-app--}}
+
 <h1 class="title">Fungi</h1>
 
 <table id = "fungi_table">
        <thead>
-		<tr>
-			<th>ID</th>
-        		<th>Name</th>
-		</tr>
+       {{!-- Display the columns --}}
+           <tr>
+		<th>ID</th>
+        	<th>Name</th>
+  	   </tr>
 	</thead>
 
 	<tbody>
-		{{#each data}}
-		<tr>
-			<td>{{this.fungus_id}}</td>
-			<td>{{this.fungus_name}}</td>
-		</tr>
-		{{/each}}	
+	    {{!-- Print the relevant attributes for each row in order --}}
+	    {{#each data}}
+	     <tr>
+	        <td>{{this.fungus_id}}</td>
+		<td>{{this.fungus_name}}</td>
+	     </tr>
+	    {{/each}}	
 	</tbody>
 </table>
 
+{{!-- Form to add a fungus --}}
 <form id="addFungus">
     <legend><h3>Add Fungus</h3></legend>
     <fieldset>

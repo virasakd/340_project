@@ -1,6 +1,11 @@
+{{!-- Citation for employees.handlebars --}} 
+{{!-- Date: 12/05/2022 --}}
+{{!-- Adapted from Node JS Starter App--}}
+{{!-- https://github.com/osu-cs340-ecampus/nodejs-starter-app--}}
+
 <h1 class="title">Employees</h1>
 
-
+{{!-- Display the columns --}}
 <table id="employees_table">
     <thead>
         <tr>
@@ -14,6 +19,7 @@
     </thead>
 
     <tbody>
+        {{!-- Print the relevant attributes for each row in order --}}	
         {{#each data}}
         <tr data-value={{this.employee_id}}>
             <td>{{this.employee_id}}</td>
@@ -21,6 +27,7 @@
             <td>{{this.employee_email}}</td>
             <td>{{this.employee_phone}}</td>
             <td>{{this.salary}}</td>
+	    {{!-- Button to delete an employee, calls JavaScript function --}}	
             <td> <button onclick="deleteEmployee({{this.employee_id}})">Delete</button> </td>
         </tr>
         {{/each}}
@@ -28,23 +35,18 @@
     </tbody>
 </table>
 
-<div>
-    <h3>Instructions for adding Employees:</h3>
-    <p>All input fields must be filled, in order to successfully add an employee.</p>
-    <p><strong>Phone number Format:</strong>123 456 7890</p>
-    <p>Salary must be a number greater than or equal to 0.</p>
-</div>
-
+{{!-- Form to add an employee --}}
 <form id="addEmployee">
     <legend><h3>Add Employee</h3></legend>
     <fieldset>
         <label>Name</label> <input  type="text" id = 'emp_name' >
         <label>Email</label> <input  type="text" id = 'emp_email'>
-        <label>Phone Number</label> <input  type="text" id = 'emp_phone' pattern="[0-9]{3} [0-9]{3} [0-9]{4}" required>
-        <label>Salary</label> <input  type="number" min="0" id = 'emp_salary'required>
+        <label>Phone Number</label> <input  type="text" id = 'emp_phone' pattern="[0-9]{3} [0-9]{3} [0-9]{4}}">
+        <label>Salary</label> <input type="number" step="0.01" placeholder="0.00" id = 'emp_salary'>
     </fieldset>
     <input type="submit" value="Add Employee">
 </form>
+
 
 <script src = "/js/employees.js"></script>
 <script src = "/js/delete_employee.js"></script>

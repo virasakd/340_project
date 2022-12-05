@@ -1,7 +1,13 @@
+{{!-- Citation for fungus_products.handlebars --}} 
+{{!-- Date: 12/05/2022 --}}
+{{!-- Adapted from Node JS Starter App--}}
+{{!-- https://github.com/osu-cs340-ecampus/nodejs-starter-app--}}
+
 <h1 class="title">Fungus Products</h1>
 
 
 <table id="fungus_products_table">
+    {{!-- Display the columns --}}
     <thead>
     <tr>
         <th>ID</th>
@@ -13,6 +19,7 @@
     <thead>
 
     <tbody>
+	{{!-- Print the relevant attributes for each row in order --}}
 	{{#each data}}
 	<tr data-value={{this.fungus_product_id}}>
 	    <td>{{this.fungus_product_id}}</td>
@@ -26,6 +33,7 @@
     
 </table>
 
+{{!-- Form to add a fungus product --}}
 <form id="addFungusProd">
     <legend><h3>Add Fungus Product</h3></legend>
     <fieldset>
@@ -46,18 +54,20 @@
 </form>
 
 
-
+{{!-- Form to update a fungus product--}}
 <form id="updateFungusProd">
     <legend><h3>Update Fungus Product</h3></legend>
     <fieldset>
         <label>Fungus Product ID</label> 
         <select name = "fungus product id" id="updatefungusprodID">
+	    {{!-- Display fungus product id's for dropdown --}}
             {{#each data}}
             <option value = "{{this.fungus_product_id}}">{{this.fungus_product_id}}</option>
            {{/each}}
         </select>
         <label>Fungus ID</label>
         <select name = "fungus id" id="updatefungusID">
+	   {{!-- Display fungus names for dropdown --}}
            {{#each fungDrop}}
             <option value = "{{this.fungus_id}}">{{this.fungus_name}}</option>
             {{/each}}
@@ -65,6 +75,7 @@
         </select>
         <label>Product ID</label> 
         <select name = "product id" id="updateproductID">
+	  {{!-- Display product names for dropdown --}}
           {{#each prodDrop}}
             <option value = "{{this.product_id}}">{{this.product_name}}</option>
             {{/each}}
@@ -73,5 +84,6 @@
     </fieldset>
     <input type="submit" value="Update Fungus Product">
 </form>
+
 <script src="./js/add_fung_prod.js"></script>
 <script src="./js/update_fung_prod.js"></script>

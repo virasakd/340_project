@@ -1,7 +1,13 @@
+{{!-- Citation for orders.handlebars --}}
+{{!-- Date: 12/05/2022 --}}
+{{!-- Adapted from Node JS Starter App--}}
+{{!-- https://github.com/osu-cs340-ecampus/nodejs-starter-app--}}
+
 <h1 class="title">Orders</h1>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <table id = "orders_table">
+    {{!-- Display the columns --}}
     <thead>
         <tr>
 		<th>ID</th>
@@ -16,45 +22,46 @@
     </thead>
 
     <tbody>
+        {{!-- Print the relevant attributes for each row in order --}}
         {{#each data}}
         <tr data-value={{this.order_id}}>
             <td>{{this.order_id}}</td>
-            <td>{{this.order_date}}</td>
+            <td>{{this.OrderDate}}</td>
             <td>{{this.total_cost}}</td>
-            <td>{{this.employee_id}}</td>
+            <td> {{this.employee_id}} </td>
             <td>{{this.employee_name}}</td>
             <td>{{this.customer_id}}</td>
             <td>{{this.customer_name}}</td>
+	    {{!-- Button to delete an employee, calls JavaScript function --}}
             <td><button onclick="deleteOrder({{this.order_id}})">Delete</button></td>
         </tr>
         {{/each}}
-    </tbody>    
+    </tbody>  
 </table>
 
-<form id="search-date-html" method="GET" action='/orders'>
-      <label for "input-order_date">Filter Orders by Date</label>
-      <input type="date" name="order_date" id="input-date-html-search">
-      
-      <input type="submit">
-      <a href='/orders'><button>Reset</button></a>
-</form>
 
-<div>
-    <h3>Instructions for Adding and Updating to the Orders table:</h3>
-    <p>All input fields excecpt the date box must be filled in.</p>
-    <p><strong>NOTE:</strong> If the date box is not filled in, the value will be '0-0-00'.</p>
-    <p>Total Cost must be a number greater than or equal to 0.</p>
+{{!-- Filter to search by customer name --}}
+<div id ="cust-filter">
+	<form id="search-cust-name-html" method="GET" action='/orders'>
+	       <label for "input-order-date">Search for Customers:</label>
+	       <input type="text" name="cust_name" id="cust_name">	          
+	       <input type="submit">	  
+	</form>
+		
+	<a href='/orders'><button>Reset</button></a>
 </div>
 
+{{!-- Form to add an order --}}
 <form id="addOrder">
     <legend><h3>Add Order</h3></legend>
     <fieldset>
         <label>Date</label> <input type="date" id="date_input">
 
-        <label>Total Cost</label> <input type="number" step="0.01" min="0" id = "cost_input" required>
+        <label>Total Cost</label> <input type="number" step='0.01' placeholder='0.00' id = "cost_input">
 
         <label>Employee ID</label>
         <select name = "id" id="empID">
+	    {{!-- Display employee names for dropdown --}}
             {{#each empInfo}}
             <option value = "{{this.employee_id}}">{{this.employee_name}}</option>
             {{/each}}
@@ -62,6 +69,7 @@
 
         <label>Customer ID</label>
         <select name = "id" id="custID">
+	    {{!-- Display customer names for dropdown --}}
             {{#each custInfo}}
             <option value = "{{this.customer_id}}">{{this.customer_name}}</option>
             {{/each}}
@@ -72,7 +80,7 @@
 </form>
 
 
-
+{{!-- Form to update an order --}}
 <form id="updateOrder">
     <legend><h3>Update Order</h3></legend>
     <fieldset>
@@ -83,16 +91,19 @@
 	     {{/each}}
         </select>
         <label>Date</label> <input type="date" id="updateOrderDate">
-        <label>Total Cost</label> <input type="number" step="0.01" min="0" id = "updateOrderCost" required>
+        <label>Total Cost</label> <input type="number" step='0.01' placeholder='0.00' id = "updateOrderCost">
         <label>Employee ID</label>
         <select name = "input-emp-id" id="updateEmpID">
-            {{!<option value = "NULL">NULL</option>}}
+ 	    {{!-- Display employee names for dropdown --}}
             {{#each empInfo}}
             <option value = "{{this.employee_id}}">{{this.employee_name}}</option>
             {{/each}}
+	     <option value = "NULL">NULL</option>
+
         </select>
         <label>Customer ID</label>
         <select name = "input-cust-id" id="updateCustID">
+	     {{!-- Display customer names for dropdown --}}
              {{#each custInfo}}
             <option value = "{{this.customer_id}}">{{this.customer_name}}</option>
             {{/each}}
