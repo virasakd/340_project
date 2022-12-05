@@ -1,3 +1,10 @@
+/* 
+Citation for delete_order.js
+Date: 12/05/2022 
+Adapted from Node JS Starter App
+https://github.com/osu-cs340-ecampus/nodejs-starter-app 
+*/
+
 function deleteOrder(orderID) {
     // Put our data we want to send in a javascript object
     let data = {
@@ -32,8 +39,6 @@ function deleteRow(orderID){
        //rows would be accessed using the "row" variable assigned in the for loop
        if (table.rows[i].getAttribute("data-value") == orderID) {
             table.deleteRow(i);
-            // reload the page so that the drop down box in the update form resets.
-            location.reload();
             break;
        }
     }

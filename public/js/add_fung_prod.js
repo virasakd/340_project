@@ -1,3 +1,11 @@
+/* 
+Citation for add_fung_prod.js
+Date: 12/05/2022 
+Adapted from Node JS Starter App
+https://github.com/osu-cs340-ecampus/nodejs-starter-app 
+*/
+
+
 // Get the objects we need to modify
 let addfung_prodForm = document.getElementById('addFungusProd');
 

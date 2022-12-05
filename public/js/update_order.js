@@ -1,3 +1,10 @@
+/* 
+Citation for update_order.js
+Date: 12/05/2022 
+Adapted from Node JS Starter App
+https://github.com/osu-cs340-ecampus/nodejs-starter-app 
+*/
+
 // Get the objects we need to modify
 let updateOrderForm = document.getElementById('updateOrder');
 
@@ -22,12 +29,11 @@ updateOrderForm.addEventListener("submit", function (e) {
     let EmpValue = inputEmp.value;
     let CustValue = inputCust.value;
     
-    // abort if customer value is null
-
-   /* if (isNaN(CustValue)) 
+   // If employee value is not a number make it null
+   if (isNaN(EmpValue)) 
     {
-        return;
-    }*/
+        EmpValue = null
+    }
 
 
     // Put our data we want to send in a javascript object
@@ -68,8 +74,8 @@ function updateRow(data, orderID){
     let table = document.getElementById("orders_table");
 
     for (let i = 0, row; row = table.rows[i]; i++) {
-       //iterate through rows
-       //rows would be accessed using the "row" variable assigned in the for loop
+       // Iterate through rows
+       // Rows would be accessed using the "row" variable assigned in the for loop
        if (table.rows[i].getAttribute("data-value") == orderID) {
 
             // Get the location of the row where we found the matching order ID
@@ -87,6 +93,7 @@ function updateRow(data, orderID){
             td_emp.innerHTML = parsedData[0].employee_id;
             td_cust.innerHTML = parsedData[0].customer_id;
 
+	   // Reload the apge
 	   location.reload();
 
        }

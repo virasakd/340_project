@@ -1,3 +1,10 @@
+/* 
+Citation for update_fung_prod.js
+Date: 12/05/2022 
+Adapted from Node JS Starter App
+https://github.com/osu-cs340-ecampus/nodejs-starter-app 
+*/
+
 let updateFung_prodForm = document.getElementById('updateFungusProd');
 
 updateFung_prodForm.addEventListener("submit", function (e) {
@@ -52,8 +59,8 @@ function updateRow(data, fung_prodID){
     let table = document.getElementById("fungus_products_table");
 
     for (let i = 0, row; row = table.rows[i]; i++) {
-       //iterate through rows
-       //rows would be accessed using the "row" variable assigned in the for loop
+       // Iterate through rows
+       // Rows would be accessed using the "row" variable assigned in the for loop
        if (table.rows[i].getAttribute("data-value") == fung_prodID) {
 
             // Get the location of the row where we found the matching order ID
@@ -67,7 +74,8 @@ function updateRow(data, fung_prodID){
             // Reassign order date to our value we updated to
             td_fungid.innerHTML = parsedData[0].upfungus_id; 
 	        td_prodid.innerHTML = parsedData[0].upProd_id;
-
+	   
+	   // Reload the page
             location.reload();
         }
     }

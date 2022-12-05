@@ -1,27 +1,31 @@
-
+/* 
+Citation for orders.js
+Date: 12/05/2022 
+Adapted from Node JS Starter App
+https://github.com/osu-cs340-ecampus/nodejs-starter-app 
+*/
 
 let addorderForm = document.getElementById('addOrder');
 
 addorderForm.addEventListener("submit",function(e){
 
-    // prevent the user from submitting an invalid form
-
+    // Prevent the user from submitting an invalid form
     e.preventDefault();
 
-    // retrieve the object/tags from the input fields
+    // Retrieve the object/tags from the input fields
     let inputDate = document.getElementById("date_input");
     let inputTotalCost = document.getElementById("cost_input");
     let inputEmployee = document.getElementById("empID");
     let inputCustomer = document.getElementById("custID")
 
 
-    // gather the data from the input objects.
+    // Gather the data from the input objects.
     let inputDateValue = inputDate.value;
     let inputTotalcostValue = inputTotalCost.value;
     let inputEmpValue = inputEmployee.value;
     let inputCustValue = inputCustomer.value;
 
-    // establish a javascript object.
+    // Establish a javascript object.
     let data = {
 
         date: inputDateValue,
@@ -31,7 +35,7 @@ addorderForm.addEventListener("submit",function(e){
 
     }
 
-    // add ajax rquest
+    // Add ajax rquest
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", "/add-order-ajax", true);
     xhttp.setRequestHeader("Content-type", "application/json");
@@ -41,7 +45,6 @@ addorderForm.addEventListener("submit",function(e){
         if (xhttp.readyState == 4 && xhttp.status == 200) {
 
             // Clear the input fields for another transaction
-            
             inputDate.value = '';
             inputTotalCost.value = '';
             inputEmployee.value = '';
@@ -55,6 +58,5 @@ addorderForm.addEventListener("submit",function(e){
 
     // Send the request and wait for the response
     xhttp.send(JSON.stringify(data));
-
 
 });

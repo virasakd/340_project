@@ -1,3 +1,10 @@
+/* 
+Citation for delete_employee.js
+Date: 12/05/2022 
+Adapted from Node JS Starter App
+https://github.com/osu-cs340-ecampus/nodejs-starter-app 
+*/
+
 function deleteEmployee(empID) {
     // Put our data we want to send in a javascript object
     let data = {
@@ -30,8 +37,8 @@ function deleteRow(empID){
 
     let table = document.getElementById("employees_table");
     for (let i = 0, row; row = table.rows[i]; i++) {
-       //iterate through rows
-       //rows would be accessed using the "row" variable assigned in the for loop
+       // Iterate through rows
+       // Rows would be accessed using the "row" variable assigned in the for loop
        if (table.rows[i].getAttribute("data-value") == empID) {
             table.deleteRow(i);
             break;

@@ -1,26 +1,31 @@
+/* 
+Citation for customers.js
+Date: 12/05/2022 
+Adapted from Node JS Starter App
+https://github.com/osu-cs340-ecampus/nodejs-starter-app 
+*/
+
 let addorderForm = document.getElementById('addCustomer');
 
 addorderForm.addEventListener("submit",function(e){
 
-    // prevent the user from submitting an invalid form
-
+    // Prevent the user from submitting an invalid form
     e.preventDefault();
 
-    // retrieve the object/tags from the input fields
+    // Retrieve the object/tags from the input fields
     let inputCust_name = document.getElementById("cust_name");
     let inputCust_email = document.getElementById("cust_email");
     let inputCust_phone = document.getElementById("cust_phone");
     let inputCust_address = document.getElementById("cust_address")
 
 
-    // gather the data from the input objects.
+    // Gather the data from the input objects.
     let name_customer = inputCust_name.value;
     let email_customer = inputCust_email.value;
     let phone_customer = inputCust_phone.value;
     let address_customer = inputCust_address.value;
-    console.log(name_customer, email_customer, "here is")
 
-    // establish a javascript object.
+    // Establish a javascript object.
     let data = {
         customer_name: name_customer,
         customer_email: email_customer,
@@ -29,7 +34,7 @@ addorderForm.addEventListener("submit",function(e){
 
     }
 
-    // add ajax rquest
+    // Add ajax rquest
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", "/add-customer-ajax", true);
     xhttp.setRequestHeader("Content-type", "application/json");
@@ -37,10 +42,6 @@ addorderForm.addEventListener("submit",function(e){
     // Tell our AJAX request how to resolve
     xhttp.onreadystatechange = () => {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
-
-            // Add the new data to the table
-            // addRowToTable(xhttp.response);
-
 
             // Clear the input fields for another transaction
             
@@ -57,6 +58,5 @@ addorderForm.addEventListener("submit",function(e){
 
     // Send the request and wait for the response
     xhttp.send(JSON.stringify(data));
-
 
 });

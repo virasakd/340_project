@@ -1,3 +1,10 @@
+/* 
+Citation for add_fungus.js
+Date: 12/05/2022 
+Adapted from Node JS Starter App
+https://github.com/osu-cs340-ecampus/nodejs-starter-app 
+*/
+
 // Get the objects we need to modify
 let addFungusForm = document.getElementById('addFungus');
 
