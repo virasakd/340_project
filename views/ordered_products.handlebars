@@ -35,6 +35,12 @@
 
 </table>
 
+<div>
+    <p>Instructions for adding an Ordered Product:<p>
+    <p>All input fields must be filled in to add an Ordered Product.</p>
+    <p>Quantity and Cost must be a number greater than or equal to 0.</p>
+</div>
+
 {{!-- Form to add an ordered product --}}
 <form id="addOrderedProd">
     <legend><h3>Add Ordered Product</h3></legend>
@@ -53,8 +59,8 @@
             <option value = "{{this.order_id}}">{{this.order_id}}</option>
 	    {{/each}}
         </select>
-        <label>Quantity</label> <input type="number" id="quantity">
-        <label>Cost</label> <input type="number" step="0.01" placeholder = "0.00" id="cost">
+        <label>Quantity</label> <input type="number" id="quantity" placeholder = "0" min = "0">
+        <label>Cost</label> <input type="number" step="0.01" placeholder = "0.00" id="cost" min = "0">
     </fieldset>
     <input type="submit" value="Add Ordered Product">
 </form>
